@@ -65,8 +65,9 @@ namespace AssignmentSpotDRAFT
 
             driver.FindElement(By.XPath("//ul[@class='personalNav']/li/div/div/div/ul/li[13]")).Click(); //click on the Sign out section from profile dropdown
 
-            Assert.IsTrue(driver.FindElement(By.XPath("//div[@id='signIn']/div/div/a")).Displayed); //Assert if "Sign In" is displayed on the webpage
-            
+            string SignIntext = driver.FindElement(By.XPath("//div[@id='signIn']/div/div/a[text()]")).Text;
+
+            Assert.AreEqual("Sign In", SignIntext); //Assert if "Sign In" text displayed on the webpage
         }
 
         [TearDown]
